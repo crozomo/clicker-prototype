@@ -3,9 +3,11 @@ class_name PrototypeClicker
 extends Control
 
 var stardust : int = 0
+
+#reference to stardust display label
 @export var label : Label
 
-
+#init label at launch
 func _ready() -> void:
 	update_label_text()
 
