@@ -1,23 +1,17 @@
-class_name PrototypeClicker
-
+class_name PrototypeUpgrades
 extends Control
+## Prototype vuew displaying upgrades
 
 
 @export var view : UserInterface.Views
 @export var user_interface : UserInterface
 
-#init label at launch
+
 func _ready() -> void:
 	visible = false
 	
 	user_interface.navigation_requested.connect(_on_navigation_requested)
-	
-## Create 1 stardust
-func create_stardust() -> void:
-	HandlerStardust.ref.trigger_clicker()
 
-func _on_button_pressed() -> void:
-	create_stardust()
 
 func _on_navigation_requested(requested_view : UserInterface.Views) -> void:
 	if requested_view == view:
