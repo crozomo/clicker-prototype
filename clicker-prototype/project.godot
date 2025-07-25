@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Clicker Prototype"
-run/main_scene="uid://b5ic6j1qqmbav"
+run/main_scene="uid://nrddw36sygkb"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

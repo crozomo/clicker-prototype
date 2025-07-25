@@ -1,23 +1,17 @@
 class_name PrototypeClicker
+extends View #extends to the view.gd script
 
-extends Control
-
-var stardust : int = 0
-
-#reference to stardust display label
-@export var label : Label
 
 #init label at launch
 func _ready() -> void:
-	update_label_text()
+	super() #order to follow ready func in view.gd (connects signal to nav request). 
+	#Super() is needed to use visible = false 
+	visible = false
 
+
+## Create 1 stardust
 func create_stardust() -> void:
-	stardust += 1
-	update_label_text()
-
-#update stardust counter label. use "%" to reference var
-func update_label_text() -> void:
-	label.text = "Stardust : %s" %stardust 
+	HandlerStardust.ref.trigger_clicker()
 
 func _on_button_pressed() -> void:
 	create_stardust()
