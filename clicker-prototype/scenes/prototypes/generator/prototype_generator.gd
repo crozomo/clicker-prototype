@@ -1,20 +1,13 @@
 class_name PrototypeGenerator
-
-extends Control
+extends View
 
 #binds nodes to editor in inspector
 @export var button : Button
 @export var timer : Timer
 
-#view reference
-@export var view : UserInterface.Views
-#UI reference
-@export var user_interface : UserInterface
-
 func _ready() -> void:
+	super()
 	visible = true
-	
-	user_interface.navigation_requested.connect(_on_navigation_requested)
 
 
 func create_stardust() -> void:
@@ -30,12 +23,3 @@ func _on_button_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	create_stardust()
-
-#watches for navigation requests and acts accordingly
-func _on_navigation_requested(requested_view : UserInterface.Views) -> void:
-	if requested_view == view:
-		visible = true
-		return
-		
-	visible = false
-	

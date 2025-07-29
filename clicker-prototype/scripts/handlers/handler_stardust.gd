@@ -4,7 +4,7 @@ extends Node
 
 static var ref : HandlerStardust
 
-
+## Singleton Ref
 func _enter_tree() -> void:
 	if not ref:
 		ref = self

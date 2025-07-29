@@ -1,21 +1,9 @@
 class_name PrototypeUpgrades
-extends Control
-## Prototype vuew displaying upgrades
+extends View
+## Prototype view displaying upgrades
 
-
-@export var view : UserInterface.Views
-@export var user_interface : UserInterface
 
 
 func _ready() -> void:
-	visible = false
-	
-	user_interface.navigation_requested.connect(_on_navigation_requested)
-
-
-func _on_navigation_requested(requested_view : UserInterface.Views) -> void:
-	if requested_view == view:
-		visible = true
-		return
-		
+	super()
 	visible = false

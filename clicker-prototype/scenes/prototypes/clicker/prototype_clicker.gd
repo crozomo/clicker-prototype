@@ -1,27 +1,17 @@
 class_name PrototypeClicker
+extends View #extends to the view.gd script
 
-extends Control
-
-
-@export var view : UserInterface.Views
-@export var user_interface : UserInterface
 
 #init label at launch
 func _ready() -> void:
+	super() #order to follow ready func in view.gd (connects signal to nav request). 
+	#Super() is needed to use visible = false 
 	visible = false
-	
-	user_interface.navigation_requested.connect(_on_navigation_requested)
-	
+
+
 ## Create 1 stardust
 func create_stardust() -> void:
 	HandlerStardust.ref.trigger_clicker()
 
 func _on_button_pressed() -> void:
 	create_stardust()
-
-func _on_navigation_requested(requested_view : UserInterface.Views) -> void:
-	if requested_view == view:
-		visible = true
-		return
-		
-	visible = false
