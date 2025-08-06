@@ -13,3 +13,6 @@ extends Resource
 
 ## Contains CC Upgrades data to save and load
 @export var cc_upgrades : DataCCUpgrades = DataCCUpgrades.new()
+
+## Contains Universe data to save and load
+@export var universe : DataUniverse = DataUniverse.new()

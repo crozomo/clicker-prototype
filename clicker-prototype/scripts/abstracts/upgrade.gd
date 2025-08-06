@@ -2,8 +2,11 @@ class_name Upgrade
 extends Node
 ## Abstract class defining an upgrade
 
-## Emitted when leveled up
+## Emitted when upgrade is leveled up
 signal leveled_up
+
+## Emitted when upgrade is unlocked
+signal upgrade_unlocked
 
 ## Upgrade level
 var level : int = -1
@@ -36,3 +39,9 @@ func can_afford() -> bool:
 ## Consumes stardust to level up
 func level_up() -> void:
 	printerr("level_up method not defined")
+
+
+## Virtual class - must be overwritten. [br]
+## Returns whether upgrade is unlocked
+func is_unlocked() -> bool:
+	return false
