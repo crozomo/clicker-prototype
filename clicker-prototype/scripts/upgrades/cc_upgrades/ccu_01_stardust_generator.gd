@@ -17,7 +17,10 @@ func _init() -> void:
 func description() -> String:
 	var text : String = "Awaken the Universe to start generating Stardust"
 	text += "\n[b]Effect : Passive Stardust Generation[/b]"
-	text += "\n[b]Cost :[/b] %s Consciousness Core" %cost
+	
+	if level < max_level: 
+		text += "\n[b]Cost :[/b] %s Consciousness Core" %cost
+	
 	return text
 	
 
@@ -38,7 +41,7 @@ func can_afford() -> bool:
 		return false
 
 
-## Consumes stardust to level up
+## Consumes consciousness cores to level up
 func level_up() -> void:
 	if level >= max_level:
 		return 
@@ -53,3 +56,8 @@ func level_up() -> void:
 	
 	leveled_up.emit()
 	HandlerCCUpgrades.ref.upgrade_leveled_up.emit(self)
+
+
+## Returns whether upgrade is unlocked
+func is_unlocked() -> bool:
+	return true
